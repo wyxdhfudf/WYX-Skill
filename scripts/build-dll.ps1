@@ -1,6 +1,6 @@
 # Rust DLL编译脚本
 param(
-    [string]$ProjectDir = "D:\shua-ke\ow_rust",
+    [string]$ProjectDir = ".",
     [switch]$Release,
     [switch]$Watch
 )
@@ -9,9 +9,10 @@ Write-Host "[*] WYX DLL Builder v2.0" -ForegroundColor Cyan
 Write-Host "[*] Project: $ProjectDir" -ForegroundColor Yellow
 
 # 设置环境变量（基于你的真实环境）
-$env:RUSTUP_HOME = "D:\rust\.rustup"
-$env:CARGO_HOME = "D:\rust\.cargo"
-$env:PATH = "D:\rust\.cargo\bin;D:\mingw64\mingw64\bin;$env:PATH"
+# 设置环境变量（默认 Rust/MinGW 路径，可通过 $env:RUSTUP_HOME / $env:CARGO_HOME 覆盖）
+if (-not $env:RUSTUP_HOME) { $env:RUSTUP_HOME = "D:\rust\.rustup" }
+if (-not $env:CARGO_HOME) { $env:CARGO_HOME = "D:\rust\.cargo" }
+$env:PATH = "$env:CARGO_HOME\bin;D:\mingw64\mingw64\bin;$env:PATH"
 
 # 验证工具
 $cargo = Get-Command cargo -EA SilentlyContinue

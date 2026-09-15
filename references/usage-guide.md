@@ -25,7 +25,7 @@ pwsh -File "scripts/rebuild-sign-install.ps1" -ProjectDir "target_out/apktool" -
 
 ```powershell
 # 编译DLL
-pwsh -File "scripts/build-dll.ps1" -ProjectDir "D:\shua-ke\ow_rust" -Release
+pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>" -Release
 
 # 注入方法
 # - Process Hacker: 右键进程 → Plugins → Inject DLL

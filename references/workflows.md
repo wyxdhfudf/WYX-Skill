@@ -49,7 +49,7 @@ work/<target>/
 # UE4: UE4SS
 
 # 3. 编写内存读取代码
-# 参考 D:\shua-ke\ow_rust\src\lib.rs
+# 参考示例 Rust 项目（替换为你的实际路径）
 ```
 
 ### 关键地址定位技巧

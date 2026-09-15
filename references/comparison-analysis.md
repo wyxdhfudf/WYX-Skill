@@ -125,7 +125,7 @@ pwsh -File "scripts/decode.ps1" -ApkPath "target.apk"
 pwsh -File "scripts/frida-run.ps1" -Spawn -Package com.game -ScriptPath hook.js
 
 # 一键编译DLL
-pwsh -File "scripts/build-dll.ps1" -ProjectDir "D:\shua-ke\ow_rust" -Release
+pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>" -Release
 
 # 一键搜索逻辑
 pwsh -File "scripts/search-logic.ps1" -SourceDir "jadx_out"

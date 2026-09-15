@@ -250,9 +250,9 @@ isz
 ### 4b. 深度分析 → ida-reverse
 
 ```powershell
-# 使用 ida-reverse skill 打开 so
-powershell -File "C:\Users\wyx\.claude\skills\reverse-skill\skills\ida-reverse\scripts\start.ps1"
-powershell -File "C:\Users\wyx\.claude\skills\reverse-skill\skills\ida-reverse\scripts\open.ps1" -Path "libtarget.so"
+# 使用 ida-reverse skill 打开 so（需提前安装 reverse-skill）
+powershell -File "$HOME\.claude\skills\reverse-skill\skills\ida-reverse\scripts\start.ps1"
+powershell -File "$HOME\.claude\skills\reverse-skill\skills\ida-reverse\scripts\open.ps1" -Path "libtarget.so"
 ```
 
 ### 4c. Native Hook模板
@@ -315,7 +315,7 @@ python Il2CppDumper.py global-metadata.dat il2cpp_dll_output
 
 ### 5c. 内存读取模板（Rust）
 
-参考 `D:\shua-ke\ow_rust\src\lib.rs`
+参考示例项目（替换为你的实际路径）
 
 关键经验：
 ```rust
@@ -344,7 +344,7 @@ use std::cell::UnsafeCell;
 
 ```powershell
 # 一键编译
-pwsh -File "scripts/build-dll.ps1" -ProjectDir "D:\shua-ke\ow_rust" -Release
+pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>" -Release
 
 # 或手动编译
 $env:RUSTUP_HOME = "D:\rust\.rustup"
@@ -490,10 +490,10 @@ pwsh -File "scripts/frida-run.ps1" -Usb -Process com.game.target -ScriptPath "D:
 
 ```powershell
 # Debug编译
-pwsh -File "scripts/build-dll.ps1" -ProjectDir "D:\shua-ke\ow_rust"
+pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>"
 
 # Release编译
-pwsh -File "scripts/build-dll.ps1" -ProjectDir "D:\shua-ke\ow_rust" -Release
+pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>" -Release
 ```
 
 ## `scripts/search-logic.ps1`
