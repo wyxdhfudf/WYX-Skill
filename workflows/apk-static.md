@@ -173,7 +173,7 @@ jadx --single-class com.example.NetworkConfig -d jadx_out target.apk
 ## 下一步建议
 1. 使用Frida进行动态Hook验证
 2. 参考bypass-cheatsheet.md编写绕过脚本
-3. 如需Native分析，使用IDA Pro深度逆向
+3. 如需Native分析，使用Ghidra或radare2深度逆向
 ```
 
 ### 2.2 决策菜单
@@ -183,7 +183,7 @@ jadx --single-class com.example.NetworkConfig -d jadx_out target.apk
 
 1. 使用Frida进行动态Hook验证
 2. 修改Smali代码并重打包
-3. 分析Native .so文件（使用IDA Pro/Ghidra）
+3. 分析Native .so文件（使用Ghidra/radare2）
 4. 生成当前阶段的分析报告
 5. 暂停，我需要更多信息
 ```

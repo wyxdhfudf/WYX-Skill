@@ -247,14 +247,26 @@ iz ~ Java_
 isz
 ```
 
-### 4b. 深度分析 → IDA Pro / Ghidra
+### 4b. 深度分析 → Ghidra（免费）/ radare2（免费）
 
 ```powershell
-# 使用 IDA Pro 打开 so 文件进行深度逆向分析
-# 加载 libtarget.so 后执行自动分析：analyzer -a
-# 或使用 Ghidra CLI 模式：
-# ghidraRun -process libtarget.so -scriptPath analyze.gs -postScript "PrintFunctions.java"
+# 方案1: Ghidra（推荐，免费开源）
+# GUI模式：ghidraRun.bat libtarget.so
+# CLI模式（无界面服务器）：
+ghidraRun -process libtarget.so -scriptPath analyze.gs -postScript "PrintFunctions.java"
+
+# 方案2: radare2（命令行，轻量）
+r2 -aa libtarget.so      # 自动分析
+iz                       # 查看所有字符串
+isz                      # 查看导入/导出函数
+aaa                      # 重新分析所有函数
+pdf @ main             # 反汇编main函数
 ```
+
+**选择建议**：
+- 需要图形界面 → Ghidra
+- 快速命令行分析 → radare2
+- 生产环境自动化 → Ghidra CLI 模式
 
 ### 4c. Native Hook模板
 
