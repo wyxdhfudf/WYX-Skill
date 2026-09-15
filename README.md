@@ -93,7 +93,7 @@ cp -r WYX/ ~/.claude/skills/WYX/
 | apktool | APK 解包/重打包 | `apktool d target.apk` |
 | Frida | 动态 Hook | `frida -U -f com.app -l hook.js` |
 | x64dbg | Windows 调试器 | 手动载入 PE 文件 |
-| IDA Pro | Native 层逆向 | `ida-reverse` skill |
+| IDA Pro | Native 层逆向 | CLI / GUI 逆向分析工具 |
 | Il2CppDumper | Unity SDK 生成 | `python Il2CppDumper.py` |
 | UE4SS | Unreal 逆向框架 | 注入 DLL |
 | Ghidra | 通用逆向分析 | CLI 模式 |

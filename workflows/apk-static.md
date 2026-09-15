@@ -23,12 +23,12 @@ pwsh -File "../scripts/decode.ps1" -ApkPath "D:\target.apk"
 [+] APKTool success: target\apktool
   Package: com.example.app
   SO files: 2
-  [!] Native library detected - consider ida-reverse skill
+  [!] Native library detected - consider IDA Pro for deep analysis
 ```
 
 **决策信号**:
 - `SO files: 0` → 纯Java分析，继续Phase 1
-- `SO files > 0` → 核心逻辑在Native层，计划调用ida-reverse
+- `SO files > 0` → 核心逻辑在Native层，计划使用IDA Pro分析
 - `Package: com.example.il2cpp` → Unity游戏，计划使用Il2CppDumper
 
 ### 0.2 Manifest分析
@@ -173,7 +173,7 @@ jadx --single-class com.example.NetworkConfig -d jadx_out target.apk
 ## 下一步建议
 1. 使用Frida进行动态Hook验证
 2. 参考bypass-cheatsheet.md编写绕过脚本
-3. 如需Native分析，调用ida-reverse skill
+3. 如需Native分析，使用IDA Pro深度逆向
 ```
 
 ### 2.2 决策菜单
@@ -183,7 +183,7 @@ jadx --single-class com.example.NetworkConfig -d jadx_out target.apk
 
 1. 使用Frida进行动态Hook验证
 2. 修改Smali代码并重打包
-3. 分析Native .so文件（调用ida-reverse）
+3. 分析Native .so文件（使用IDA Pro/Ghidra）
 4. 生成当前阶段的分析报告
 5. 暂停，我需要更多信息
 ```

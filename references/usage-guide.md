@@ -35,7 +35,7 @@ pwsh -File "scripts/build-dll.ps1" -ProjectDir "<your-rust-project>" -Release
 
 ### 3. EDR绕过
 
-详见 `SKILL.md` 中的edr-syscall-bypass模块
+详见 `SKILL.md` 中的EDR绕过模块
 
 ## 常见问题
 

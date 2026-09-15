@@ -19,7 +19,7 @@ description: |
 |---------|-------------|
 | APK静态分析（Java/Smali层） | `workflows/apk-static.md` |
 | APK动态Hook（Frida/Xposed） | `workflows/apk-dynamic.md` |
-| Native .so分析 | 调用 `ida-reverse` 或 `radare2` |
+| Native .so分析 | IDA Pro / Ghidra 逆向分析 |
 | 游戏内存分析（自瞄/透视/无后座） | `workflows/game-memory.md` |
 | DLL注入（Windows游戏） | `workflows/dll-inject.md` |
 | 加密算法破解/卡密验证 | `workflows/crypto-crack.md` |
@@ -62,7 +62,7 @@ description: |
 
 | 信号 | 判断 | 下一步 |
 |------|------|--------|
-| APK含`.so`文件 | 核心逻辑在Native层 | 切 `ida-reverse` 或 `radare2` |
+| APK含`.so`文件 | 核心逻辑在Native层 | 切 IDA Pro 逆向分析 |
 | Java层全是JNI wrapper | 同上 | 切Native分析 |
 | 包名含`il2cpp`或资源有`Managed` | Unity游戏 | 用 `Il2CppDumper` |
 | Java层可读且逻辑清晰 | 纯Java分析够用 | 直接Frida Hook |
@@ -247,12 +247,13 @@ iz ~ Java_
 isz
 ```
 
-### 4b. 深度分析 → ida-reverse
+### 4b. 深度分析 → IDA Pro / Ghidra
 
 ```powershell
-# 使用 ida-reverse skill 打开 so（需提前安装 reverse-skill）
-powershell -File "$HOME\.claude\skills\reverse-skill\skills\ida-reverse\scripts\start.ps1"
-powershell -File "$HOME\.claude\skills\reverse-skill\skills\ida-reverse\scripts\open.ps1" -Path "libtarget.so"
+# 使用 IDA Pro 打开 so 文件进行深度逆向分析
+# 加载 libtarget.so 后执行自动分析：analyzer -a
+# 或使用 Ghidra CLI 模式：
+# ghidraRun -process libtarget.so -scriptPath analyze.gs -postScript "PrintFunctions.java"
 ```
 
 ### 4c. Native Hook模板
@@ -521,16 +522,15 @@ pwsh -File "scripts/search-logic.ps1" -SourceDir "jadx_out" -Keywords @("encrypt
 
 ## 路由上下文
 
-**上游入口**: 本 skill 独立触发，也可被 `attack-chain` 调用作为移动端突破阶段
+**上游入口**: 本 skill 独立触发
+
 **下游出口**:
-- Native .so 深度分析 → `ida-reverse` skill
-- Radare2 CLI 分析 → `radare2` skill
-- Unity IL2CPP 专项 → `binary-diff` + Il2CppDumper
-- EDR绕过 → `edr-syscall-bypass` skill
+- Native .so 深度分析 → IDA Pro / Ghidra 逆向工具
+- Unity IL2CPP 专项 → Il2CppDumper + IDA Pro
+- EDR绕过 → syscall unhook / hypervisor 隐藏
 
 **同级关联**:
-- `edr-bypass-re` — 当目标有 EDR/反作弊保护时使用
-- `reverse-engineering` — 通用逆向方法论补充
+- 通用逆向方法论 → 参考 references/ 下的模板库
 
 ## 任务完成自检
 
