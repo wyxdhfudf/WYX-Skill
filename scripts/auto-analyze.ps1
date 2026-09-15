@@ -72,7 +72,7 @@ if (-not $SkipStatic) {
     $soFiles = Get-ChildItem $apktoolOut -Recurse -Filter "*.so" -ErrorAction SilentlyContinue
     if ($soFiles.Count -gt 0) {
         Write-Host "`n[!] Native libraries detected ($($soFiles.Count))" -ForegroundColor Yellow
-        Write-Host "    Consider using IDA Pro for deep analysis" -ForegroundColor Gray
+        Write-Host "    Consider using Ghidra for deep analysis" -ForegroundColor Gray
     }
 }
 
@@ -185,4 +185,4 @@ Write-Host "`n[*] Next steps:" -ForegroundColor Cyan
 Write-Host "    1. Review the analysis report" -ForegroundColor Gray
 Write-Host "    2. Check search_report.md for critical logic" -ForegroundColor Gray
 Write-Host "    3. Use Frida for dynamic analysis if needed" -ForegroundColor Gray
-Write-Host "    4. Analyze .so files with IDA Pro" -ForegroundColor Gray
+Write-Host "    4. Analyze .so files with Ghidra" -ForegroundColor Gray

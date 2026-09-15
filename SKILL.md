@@ -438,7 +438,7 @@ Java.perform(function() {
 - MBA混淆：混合布尔算术表达式
 
 处理方法：
-1. 使用 D-810 插件（IDA Pro）
+1. 使用 Ghidra 插件（免费开源）
 2. 使用 ollvm-unflattener（Miasm）
 3. 符号执行（angr）
 ```
@@ -537,8 +537,8 @@ pwsh -File "scripts/search-logic.ps1" -SourceDir "jadx_out" -Keywords @("encrypt
 **上游入口**: 本 skill 独立触发
 
 **下游出口**:
-- Native .so 深度分析 → IDA Pro / Ghidra 逆向工具
-- Unity IL2CPP 专项 → Il2CppDumper + IDA Pro
+- Native .so 深度分析 → Ghidra / radare2 逆向工具
+- Unity IL2CPP 专项 → Il2CppDumper + Ghidra
 - EDR绕过 → syscall unhook / hypervisor 隐藏
 
 **同级关联**:

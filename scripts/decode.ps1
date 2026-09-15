@@ -76,7 +76,7 @@ if (-not $SkipApktool) {
                 Write-Host "  SO files: $soCount" -ForegroundColor White
 
                 if ($soCount -gt 0) {
-                    Write-Host "  [!] Native library detected - consider IDA Pro for deep analysis" -ForegroundColor Yellow
+                    Write-Host "  [!] Native library detected - consider Ghidra for deep analysis" -ForegroundColor Yellow
                 }
             }
         } else {
