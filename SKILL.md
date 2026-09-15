@@ -19,7 +19,7 @@ description: |
 |---------|-------------|
 | APK静态分析（Java/Smali层） | `workflows/apk-static.md` |
 | APK动态Hook（Frida/Xposed） | `workflows/apk-dynamic.md` |
-| Native .so分析 | IDA Pro / Ghidra 逆向分析 |
+| Native .so分析 | Ghidra / radare2 逆向分析 |
 | 游戏内存分析（自瞄/透视/无后座） | `workflows/game-memory.md` |
 | DLL注入（Windows游戏） | `workflows/dll-inject.md` |
 | 加密算法破解/卡密验证 | `workflows/crypto-crack.md` |
@@ -62,7 +62,7 @@ description: |
 
 | 信号 | 判断 | 下一步 |
 |------|------|--------|
-| APK含`.so`文件 | 核心逻辑在Native层 | 切 IDA Pro 逆向分析 |
+| APK含`.so`文件 | 核心逻辑在Native层 | 切 Ghidra / radare2 逆向分析 |
 | Java层全是JNI wrapper | 同上 | 切Native分析 |
 | 包名含`il2cpp`或资源有`Managed` | Unity游戏 | 用 `Il2CppDumper` |
 | Java层可读且逻辑清晰 | 纯Java分析够用 | 直接Frida Hook |

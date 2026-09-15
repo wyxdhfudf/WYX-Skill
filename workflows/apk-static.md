@@ -23,12 +23,12 @@ pwsh -File "../scripts/decode.ps1" -ApkPath "D:\target.apk"
 [+] APKTool success: target\apktool
   Package: com.example.app
   SO files: 2
-  [!] Native library detected - consider IDA Pro for deep analysis
+  [!] Native library detected - consider Ghidra for deep analysis
 ```
 
 **决策信号**:
 - `SO files: 0` → 纯Java分析，继续Phase 1
-- `SO files > 0` → 核心逻辑在Native层，计划使用IDA Pro分析
+- `SO files > 0` → 核心逻辑在Native层，计划使用Ghidra分析
 - `Package: com.example.il2cpp` → Unity游戏，计划使用Il2CppDumper
 
 ### 0.2 Manifest分析
