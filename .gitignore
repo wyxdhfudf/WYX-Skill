@@ -1,0 +1,15 @@
+# WYX Skill - Git Ignore
+# 这些目录包含实战经验，不公开到GitHub
+
+# 实战经验记录
+field-journal/
+work/
+
+# 用户私有memory（保留MEMORY.md索引，但排除具体经验文件）
+memory/*.md
+!memory/MEMORY.md
+
+# 运行时产物
+*.log
+*.tmp
+.DS_Store
