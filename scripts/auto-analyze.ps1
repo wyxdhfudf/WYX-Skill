@@ -16,7 +16,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 
-$SkillRoot = "C:\Users\wyx\.claude\skills\WYX"
+$SkillRoot = $PSScriptRoot -replace '\\scripts$', ''
 $Timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 
 Write-Host "[*] WYX Auto Analyzer v1.0" -ForegroundColor Cyan

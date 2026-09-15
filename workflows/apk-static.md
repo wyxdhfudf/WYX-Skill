@@ -10,7 +10,7 @@
 
 ```powershell
 # 使用WYX一键脚本
-pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\decode.ps1" -ApkPath "D:\target.apk"
+pwsh -File "../scripts/decode.ps1" -ApkPath "D:\target.apk"
 ```
 
 **输出解读**:
@@ -34,7 +34,7 @@ pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\decode.ps1" -ApkPath "D:\tar
 ### 0.2 Manifest分析
 
 ```powershell
-pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\manifest-summary.ps1" -ManifestPath "target\apktool\AndroidManifest.xml"
+pwsh -File "../scripts/manifest-summary.ps1" -ManifestPath "target\apktool\AndroidManifest.xml"
 ```
 
 **关键信息提取**:
@@ -47,10 +47,10 @@ pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\manifest-summary.ps1" -Manif
 
 ```powershell
 # 搜索验证相关逻辑
-pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\search-logic.ps1" -SourceDir "target\jadx" -Keywords @("license","auth","key","verify","sign","check")
+pwsh -File "../scripts/search-logic.ps1" -SourceDir "target\jadx" -Keywords @("license","auth","key","verify","sign","check")
 
 # 搜索加密相关逻辑
-pwsh -File "C:\Users\wyx\.claude\skills\WYX\scripts\search-logic.ps1" -SourceDir "target\jadx" -Keywords @("encrypt","decrypt","cipher","hash","md5","sha","aes")
+pwsh -File "../scripts/search-logic.ps1" -SourceDir "target\jadx" -Keywords @("encrypt","decrypt","cipher","hash","md5","sha","aes")
 ```
 
 ---
